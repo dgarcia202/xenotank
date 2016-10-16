@@ -74,15 +74,15 @@
     <Compile Include="Assets\Scripts\Controllers\PlayerTankController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerTurretController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TankAiController.cs" />
     <Compile Include="Assets\Scripts\Controllers\TankController.cs" />
     <Compile Include="Assets\Scripts\Controllers\TankControllerBase.cs" />
-    <Compile Include="Assets\Scripts\IState.cs" />
-    <Compile Include="Assets\Scripts\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\TankAiController.cs" />
-    <Compile Include="Assets\Scripts\TankDefaultState.cs" />
-    <Compile Include="Assets\Scripts\TankHostileState.cs" />
-    <Compile Include="Assets\Scripts\TankPatrolState.cs" />
-    <Compile Include="Assets\Scripts\UserInputManager.cs" />
+    <Compile Include="Assets\Scripts\Core\IState.cs" />
+    <Compile Include="Assets\Scripts\Core\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Managers\UserInputManager.cs" />
+    <Compile Include="Assets\Scripts\States\TankDefaultState.cs" />
+    <Compile Include="Assets\Scripts\States\TankHostileState.cs" />
+    <Compile Include="Assets\Scripts\States\TankPatrolState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

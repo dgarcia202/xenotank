@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Core;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class TankAiController : MonoBehaviour
