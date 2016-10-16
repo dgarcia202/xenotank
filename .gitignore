@@ -83,3 +83,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+# Specific
+Library
+Standard Assets
+Temp
+.vs
