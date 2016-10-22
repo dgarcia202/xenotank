@@ -21,6 +21,7 @@ public class TankHostileState : IState<TankAiController>
     public void Enter(TankAiController agent)
     {
         agent.Navigation.Stop();
+        agent.Shoot();
     }
 
     public void UpdateState(TankAiController agent)

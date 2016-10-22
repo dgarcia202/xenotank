@@ -44,7 +44,6 @@ public class TankPatrolState : IState<TankAiController>
 
     private void GoToNextPoint(TankAiController agent)
     {
-
         if (agent.wayPoints.Length == 0)
         {
             return;

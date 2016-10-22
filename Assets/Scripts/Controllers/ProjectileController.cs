@@ -5,13 +5,6 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private GameObject explosion;
 
-    private Rigidbody rigidBody;
-
-    private void Start()
-    {
-        this.rigidBody = this.GetComponent<Rigidbody>();
-    }
-
     private void FixedUpdate()
     {
         this.transform.rotation = Quaternion.LookRotation(this.transform.forward);

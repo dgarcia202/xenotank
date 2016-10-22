@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using Core;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -7,6 +8,12 @@ public class TankAiController : MonoBehaviour
     private NavMeshAgent agent;
 
     private StateMachine<TankAiController> stateMachine;
+
+    [SerializeField] private GameObject explosion;
+
+    [SerializeField] private GameObject shootPoint;
+
+    private float coolDownState = 0.0f;
 
     public Transform player;
 
@@ -23,6 +30,12 @@ public class TankAiController : MonoBehaviour
     [HideInInspector] public int destinationPoint;
 
     [HideInInspector] public Transform turret;
+
+    public Rigidbody projectile;
+
+    public float shootForce = (float)1e+04;
+
+    public float coolDownTime = 5.0f;
 
     public NavMeshAgent Navigation
     {
@@ -49,6 +62,33 @@ public class TankAiController : MonoBehaviour
 
     void Update()
     {
+        if (this.coolDownState > 0.0f)
+        {
+            this.coolDownState -= Time.fixedTime;
+        }
+
         this.stateMachine.Update();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Shell"))
+        {
+            this.Explode();
+        }
+    }
+
+    public void Shoot()
+    {
+        var newProjectile = Instantiate(this.projectile, this.shootPoint.transform.position, Quaternion.identity) as Rigidbody;
+        newProjectile.gameObject.transform.Rotate(Vector3.right, 90f);
+        newProjectile.AddForce(this.shootPoint.transform.forward * this.shootForce);
+        this.coolDownState = this.coolDownTime;
+    }
+
+    private void Explode()
+    {
+        Instantiate(this.explosion, this.transform.position, this.transform.rotation);
+        Destroy(this.gameObject, 0.1f);
     }
 }

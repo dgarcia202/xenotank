@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerTurretController : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerTurretController : MonoBehaviour
     [SerializeField] private float barrelTurnSpeed = 10.8f;
 
     [SerializeField] private GameObject shootPoint;
+
+    [SerializeField] private Text gameOverText;
 
     public GameObject turret;
 
@@ -21,8 +24,9 @@ public class PlayerTurretController : MonoBehaviour
 
     public float shootForce = (float) 1e+04;
 
-    void Start()
+    public void Start()
     {
+        this.gameOverText.text = string.Empty;
     }
 
     public void Move(bool[] input)
